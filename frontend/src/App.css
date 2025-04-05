@@ -1,0 +1,150 @@
+
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh; 
+  margin: 0;
+  background-image: url('bg.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 800px;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centers children vertically */
+  height: 100vh; 
+}
+
+/* Centering the Alert Box vertically */
+.alert-box {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  background: #fef2f2;
+  color: #b91c1c;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  gap: 10px;
+  border: 2px solid #b91c1c;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: popIn 0.5s ease-in-out forwards;
+  position: relative;
+  min-height: 100px; 
+}
+
+/* Button Styling - Glossy & Animated */
+.clear-button {
+  background: linear-gradient(to bottom, red 0%, red 100%);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  border: 3px solid red;
+  border-radius: 50px;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Glossy effect - Shine */
+.clear-button::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 70%;
+  height: 25%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  z-index: 1;
+}
+
+/* Hover effect - Smooth scaling and color shift */
+.clear-button:hover {
+  background: linear-gradient(to bottom, #0099ff 0%, #0055cc 100%);
+  transform: scale(1.1);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.8);
+}
+
+/* Active click effect - Button presses down */
+.clear-button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Alert Box Pop-in animation */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Alert Icon Bounce */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .clear-button {
+    width: 150px;
+    height: 70px;
+    font-size: 24px;
+  }
+}
+/* Scrollable Alert List */
+.alert-list {
+  max-height: 300px; /* Customize height as needed */
+  overflow-y: auto;
+  width: 100%;
+  padding-right: 10px;
+  margin-top: 1rem;
+}
+
+/* Optional scrollbar styling */
+.alert-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.alert-list::-webkit-scrollbar-thumb {
+  background-color: #dc3545;
+  border-radius: 4px;
+}
+
+.alert-list::-webkit-scrollbar-track {
+  background-color: #f5f3f3;
+}

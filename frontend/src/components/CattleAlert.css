@@ -1,0 +1,82 @@
+.alert-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-left: 6px solid #ffc107;
+  margin: 16px 0; /* Increased spacing between alerts */
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
+}
+
+  
+  /* Highlighted state when progress > 75% */
+  .highlighted {
+    background-color: #f8d7da !important; /* Light red for danger */
+    border-left-color: #dc3545 !important;
+    box-shadow: 2px 2px 15px rgba(220, 53, 69, 0.3);
+  }
+  
+  .icon {
+    font-size: 26px;
+    margin-right: 12px;
+    animation: bounce 1s infinite alternate ease-in-out;
+  }
+  
+  .alert-content {
+    flex-grow: 1;
+  }
+  
+  /* Progress Bar Styling */
+  .progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 8px;
+    position: relative;
+  }
+  
+  /* Smooth transition for progress bar */
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #ffc107;
+    transition: width 0.5s ease-in-out, background 0.5s ease-in-out;
+  }
+  
+  /* When highlighted, progress bar turns red */
+  .highlighted .progress-fill {
+    background: #dc3545 !important;
+  }
+  
+  /* Alert Icon Bounce Effect */
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .alert-item {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px;
+    }
+  
+    .icon {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+  
+    .progress-bar {
+      height: 8px;
+    }
+  }
+  
