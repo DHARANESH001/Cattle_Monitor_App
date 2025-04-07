@@ -20,11 +20,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centers children vertically */
+  justify-content: center; 
   height: 100vh; 
 }
 
-/* Centering the Alert Box vertically */
 .alert-box {
   display: flex;
   flex-direction: column; 
@@ -47,7 +46,6 @@ body {
   min-height: 100px; 
 }
 
-/* Button Styling - Glossy & Animated */
 .clear-button {
   background: linear-gradient(to bottom, red 0%, red 100%);
   color: white;
@@ -70,7 +68,6 @@ body {
   overflow: hidden;
 }
 
-/* Glossy effect - Shine */
 .clear-button::before {
   content: "";
   position: absolute;
@@ -100,13 +97,14 @@ body {
 @keyframes popIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: scale(0.9) translateY(-20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
   }
 }
+
 
 /* Alert Icon Bounce */
 @keyframes bounce {

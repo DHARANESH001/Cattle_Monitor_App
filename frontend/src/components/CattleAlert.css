@@ -79,4 +79,40 @@
       height: 8px;
     }
   }
+  .alert-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Add pulse effect for critical alerts */
+  .highlighted {
+    animation: pulseGlow 1.2s infinite alternate;
+  }
+  
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(220, 53, 69, 0.4);
+    }
+    100% {
+      box-shadow: 0 0 25px rgba(220, 53, 69, 0.7);
+    }
+  }
+  
+  /* Glow effect for progress bar */
+  .progress-fill {
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+  }
+  
+  .highlighted .progress-fill {
+    box-shadow: 0 0 10px rgba(220, 53, 69, 0.8);
+  }
   

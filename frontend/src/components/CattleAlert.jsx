@@ -24,7 +24,12 @@ const CattleAlert = ({ message, resetSignal }) => {
   }, [resetSignal]);
 
   return (
-    <div className={`alert-item ${isHighlighted ? "highlighted" : ""}`} role="alert">
+<div
+  className={`alert-item ${isHighlighted ? "highlighted" : ""}`}
+  style={{ animationDelay: `${Math.random() * 0.3}s` }} 
+  role="alert"
+>
+
       <div className="icon">⚠️</div>
       <div className="alert-content">
         <p>{message}</p>
