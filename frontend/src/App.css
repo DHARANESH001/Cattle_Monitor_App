@@ -7,7 +7,7 @@ body {
   justify-content: center; 
   height: 100vh; 
   margin: 0;
-  background-image: url('bg.jpeg');
+  background-image: url('https://livesquare.in/wp-content/uploads/2014/07/Top-10-best-Simple-Awesome-Background-Images-for-Your-Website-or-Blog3.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -29,7 +29,7 @@ body {
   flex-direction: column; 
   align-items: center;
   justify-content: center;
-  background: #fef2f2;
+  background: #fef2f269;
   color: #b91c1c;
   padding: 1.5rem;
   border-radius: 12px;

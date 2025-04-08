@@ -29,7 +29,7 @@ const CattleAlert = ({ message, resetSignal }) => {
   style={{ animationDelay: `${Math.random() * 0.3}s` }} 
   role="alert"
 >
-
+  
       <div className="icon">⚠️</div>
       <div className="alert-content">
         <p>{message}</p>
