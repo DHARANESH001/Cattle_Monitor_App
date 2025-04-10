@@ -1,46 +1,38 @@
 import React, { useEffect, useState } from "react";
 import "./CattleAlert.css";
 
-const CattleAlert = ({ message, resetSignal }) => {
-  const [progress, setProgress] = useState(0);
-  const [isHighlighted, setIsHighlighted] = useState(false);
+const CattleAlert = ({ id, sensingHours, restingHours, resetSignal }) => {
+  const [statusClass, setStatusClass] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        const newProgress = prev < 100 ? prev + 10 : 100;
-        setIsHighlighted(newProgress > 75);
-        return newProgress;
-      });
-    }, 500);
+    const ratio = (restingHours / sensingHours) * 100;
+    if (ratio > 75) {
+      setStatusClass("red-alert");
+    } else if (ratio > 50) {
+      setStatusClass("highlighted");
+    } else {
+      setStatusClass("");
+    }
+  }, [restingHours, sensingHours]);
 
-    return () => clearInterval(interval);
-  }, []);
-
-  // Reset progress when resetSignal changes
   useEffect(() => {
-    setProgress(0);
-    setIsHighlighted(false);
+    setStatusClass("");
   }, [resetSignal]);
 
   return (
-<div
-  className={`alert-item ${isHighlighted ? "highlighted" : ""}`}
-  style={{ animationDelay: `${Math.random() * 0.3}s` }} 
-  role="alert"
->
-  
-      <div className="icon">⚠️</div>
-      <div className="alert-content">
-        <p>{message}</p>
-        <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${progress}%` }}
-            aria-valuenow={progress}
-            aria-valuemin="0"
-            aria-valuemax="100"
-          ></div>
+    <div className={`alert-item ${statusClass}`} role="alert">
+      {statusClass === "red-alert" && (
+        <div className="alert-icon">⚠️</div>
+      )}
+      <div className="id-heading">Cattle ID: {id}</div>
+      <div className="time-boxes">
+        <div className="time-card sensing">
+          <p>Sensing Time</p>
+          <h4>{sensingHours} hrs</h4>
+        </div>
+        <div className="time-card resting">
+          <p>Resting Time</p>
+          <h4>{restingHours} hrs</h4>
         </div>
       </div>
     </div>

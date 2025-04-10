@@ -1,118 +1,101 @@
 .alert-item {
   display: flex;
-  align-items: center;
-  padding: 15px;
-  background-color: #fff3cd;
+  flex-direction: column;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f2e4a5;
   border-left: 6px solid #ffc107;
-  margin: 16px 0; /* Increased spacing between alerts */
-  border-radius: 8px;
-  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.15);
-  transition: background-color 0.3s ease-in-out, border-left-color 0.3s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+  width: 100%;
+  max-width: 500px;
 }
 
-  
-  /* Highlighted state when progress > 75% */
-  .highlighted {
-    background-color: #f8d7da !important; 
-    border-left-color: #dc3545 !important;
-    box-shadow: 2px 2px 15px rgba(220, 53, 69, 0.3);
+.highlighted {
+  background-color: #fff3cd !important;
+  border-left-color: #ff9800 !important;
+  box-shadow: 0 0 12px rgba(255, 152, 0, 0.3);
+}
+
+.red-alert {
+  background-color: #ffe5e5 !important;
+  border-left-color: #e60000 !important;
+  animation: pulseRed 1s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+@keyframes pulseRed {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
   }
-  
-  .icon {
-    font-size: 26px;
-    margin-right: 12px;
-    animation: bounce 1s infinite alternate ease-in-out;
+  50% {
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
+    background-color: #ffd6d6;
   }
-  
-  .alert-content {
-    flex-grow: 1;
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
   }
-  
-  /* Progress Bar Styling */
-  .progress-bar {
-    width: 100%;
-    height: 10px;
-    background: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 8px;
-    position: relative;
-  }
-  
-  /* Smooth transition for progress bar */
-  .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: #ffc107;
-    transition: width 0.5s ease-in-out, background 0.5s ease-in-out;
-  }
-  
-  /* When highlighted, progress bar turns red */
-  .highlighted .progress-fill {
-    background: #dc3545 !important;
-  }
-  
-  /* Alert Icon Bounce Effect */
-  @keyframes bounce {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.2);
-    }
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 600px) {
-    .alert-item {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 12px;
-    }
-  
-    .icon {
-      font-size: 22px;
-      margin-bottom: 5px;
-    }
-  
-    .progress-bar {
-      height: 8px;
-    }
-  }
-  .alert-item:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-  
-  
-  @keyframes fadeInUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Add pulse effect for critical alerts */
-  .highlighted {
-    animation: pulseGlow 1.2s infinite alternate;
-  }
-  
-  @keyframes pulseGlow {
-    0% {
-      box-shadow: 0 0 10px rgba(220, 53, 69, 0.4);
-    }
-    100% {
-      box-shadow: 0 0 25px rgba(220, 53, 69, 0.7);
-    }
-  }
-  
-  /* Glow effect for progress bar */
-  .progress-fill {
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
-  }
-  
-  .highlighted .progress-fill {
-    box-shadow: 0 0 10px rgba(220, 53, 69, 0.8);
-  }
-  
+}
+
+.alert-icon {
+  font-size: 24px;
+  color: red;
+  margin-bottom: 8px;
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+.id-heading {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.time-boxes {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.time-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.time-card:hover {
+  transform: scale(1.05);
+}
+
+.time-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.time-card h4 {
+  margin: 6px 0 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.sensing {
+  border-left: 4px solid #4caf50;
+}
+
+.resting {
+  border-left: 4px solid #ff5722;
+}
